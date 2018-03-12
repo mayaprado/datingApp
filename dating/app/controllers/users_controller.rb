@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  def index
-    puts 'called'
-    session[:session_token] = 3
-    render json: [1, 2, 3, 4]
-  end
+  # def index
+  #   puts 'called'
+  #   session[:session_token] = 3
+  #   render json: [1, 2, 3, 4]
+  # end
 
   def gen_token(user_id)
     payload = {id: user_id}
@@ -19,9 +19,9 @@ class UsersController < ApplicationController
       username: username
     })
 
-
+    user = User.find_from_credentials username, password
     if new_user
-      render json: {token: gen_token(new_user.id)}
+      render json: {user: user, token: gen_token(new_user.id)}
     else
       render json: {err: 'error in create new user'}
     end
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-    render json: @users
+    render json: {users: @users}
   end
 
   def is_logged_in
@@ -49,5 +49,12 @@ class UsersController < ApplicationController
     else 
       render json: {user: user, token: gen_token(user.id)}
     end
+  end
+
+  def update
+    bio = params[:bio]
+    @user = User.find(params[:id])
+    @user.update(bio: bio)
+    render json: {user: @user}
   end
 end

@@ -3,22 +3,33 @@ import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 import axios from 'axios';
 import logo from './logo.svg';
 import Home from './components/home';
-import Login from './components/login';
 import Register from './components/register';
 import TokenService from './services/TokenService';
+import Account from './components/account';
+import Feed from './components/feed';
 
 
 export default class App extends Component {
    constructor(props) {
     super(props);
     this.state = {
-      user: {}
+      user: {},
+      logged: false, 
+      users: []
     }
+    this.register = this.register.bind(this);
+    this.login = this.login.bind(this);
+    this.logout = this.logout.bind(this);
+    this.checkLogin = this.checkLogin.bind(this);
+    this.queryUsers = this.queryUsers.bind(this);
+    this.updateUser = this.updateUser.bind(this);
+
   }
-  // api call for creating a new user
-  // note that TokenService.save with the token is called
-  // may also want to setState with the user data and
-  // whether or not the user is logged in
+
+  componentDidMount() {
+    this.queryUsers();
+    console.log('in componentDidMount, state: ', this.state);
+  }
 
   register(data) {
     console.log("in register, data: ", data);
@@ -26,41 +37,52 @@ export default class App extends Component {
       method: "POST",
       data
     }).then(resp => {
-      TokenService.save(resp.data.token)
+      TokenService.save(resp.data.token);
+      this.setState({ user: resp.data.user, logged: true });
+      console.log("in register, user is ", this.state);
     })
     .catch(err => console.log(`err: ${err}`));
   }
 
-  // same as above except route is login
-  // as above, we are saving the token locally using
-  // the TokenService
   login(data) {
     axios('http://localhost:3000/users/login', {
       method: "POST",
       data
     }).then(resp => {
       TokenService.save(resp.data.token);
+      this.setState({ user: resp.data.user, logged: true });
+      console.log("in login, user is ", this.state);
     })
     .catch(err => console.log(`err: ${err}`));
   }
 
-  // calling a restricted route on the server
-  // the important part is setting the Authorization header
-  // with the token retrieved from the TokenService
-  authClick(ev) {
-    ev.preventDefault();
-    axios('http://localhost:3000/bottles', {
-      headers: {
-        Authorization: `Bearer ${TokenService.read()}`,
-      },
-    }).then(resp => console.log(resp))
-    .catch(err => console.log(err));
+  updateUser(data) {
+    console.log('in updateUser, user is ', this.state.user);
+    axios(`http://localhost:3000/users/${this.state.user.id}`, {
+      method: "PUT",
+      data
+    }).then(resp => {
+      TokenService.save(resp.data.token);
+      this.setState({ user: resp.data.user});
+      console.log("in login, user is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
   }
 
-  // just delete the token
-  logout(ev) {
-    ev.preventDefault();
+  logout() {
     TokenService.destroy();
+    this.setState({ user: {}, logged: false });
+    console.log("in logout, user is ", this.state);
+  }
+
+  queryUsers() {
+    axios('http://localhost:3000/users', {
+      method: "GET"
+    }).then(resp => {
+      this.setState({ users: resp.data.users });
+      console.log("in queryUsers, users are ", this.state.users);
+    })
+    .catch(err => console.log(`err: ${err}`));
   }
 
   checkLogin() {
@@ -74,21 +96,21 @@ export default class App extends Component {
 
   render() {
     return (
-      <div>
-        <div>
-          Weird button: <button onClick={this.authClick.bind(this)}>Weird Button</button>
-          <p><button onClick={this.checkLogin.bind(this)}>Check If Logged In</button></p>
-          <p><button onClick={this.logout.bind(this)}>Logout</button></p>
-        </div>
+      <div className="main-container">
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/register" component={(props) => (
-                <Register {...props} submit={this.register.bind(this)} />
+            <Route exact path="/" component={(props) => (
+              <Home {...props} submit={this.login} />
             )} />
-          <Route exact path="/login" component={(props) => (
-            <Login {...props} submit={this.login.bind(this)} />
-          )} />
+            <Route exact path="/register" component={(props) => (
+                <Register {...props} submit={this.register} />
+            )} />
+            <Route exact path="/account" component={(props) => (
+                <Account {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} change={this.updateUser} /> 
+            )} />
+            <Route exact path="/feed" component={(props) => (
+                <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} /> 
+            )} />
           </Switch>
         </BrowserRouter>
       </div>

@@ -5,20 +5,50 @@ import UserForm from './userForm';
 export default class Register extends Component {
   constructor(props) {
     super(props);
-    this.onSubmit = this.onSubmit.bind(this);
+    this.state = {
+      username: '',
+      password: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  onSubmit(data) {
-    this.props.submit(data);
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.submit(this.state);
+    this.props.history.push('/account');
+  }
+
+  handleChange(e) {
+    const { name, value } = e.target
+    this.setState({
+      [name]: value
+    });
   }
 
   render() {
-    // take note how the onSubmit method is passed down to the UserForm
-    // as a prop
     return (
       <div>
-        I'm a register
-        <UserForm submit={this.onSubmit} />
+        <h1>Create an account!</h1>
+        <form onSubmit={this.handleSubmit}>
+        <label>Name
+          <input 
+            type="text" 
+            name="username" 
+            onChange={this.handleChange}
+            value={this.state.username} />
+        </label>
+        <br />
+        <label>Password
+          <input 
+            type="password" 
+            name="password" 
+            onChange={this.handleChange}
+            value={this.state.password} />
+        </label>
+        <button type="submit" value="Submit">Submit</button>
+        </form>
         <p><Link to="/"><button>Back Home</button></Link></p>
       </div>
     )

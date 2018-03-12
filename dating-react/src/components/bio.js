@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-export default class UserForm extends Component {
-  constructor(props) {
+export default class Bio extends Component {
+  constructor(props){
     super(props);
     this.state = {
-      username: '',
-      password: ''
+      username: this.props.user.username,
+      bio: ''
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,20 +28,11 @@ export default class UserForm extends Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Name
-          <input 
+        <label>
+          <textarea 
             type="text" 
-            name="username" 
-            onChange={this.handleChange}
-            value={this.state.username} />
-        </label>
-        <br />
-        <label>Password
-          <input 
-            type="password" 
-            name="password" 
-            onChange={this.handleChange}
-            value={this.state.password} />
+            name="bio" 
+            onChange={this.handleChange} />
         </label>
         <button type="submit" value="Submit">Submit</button>
       </form>
