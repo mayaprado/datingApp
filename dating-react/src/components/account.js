@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Bio from './bio';
+import Test from './test';
 
 export default class Account extends Component {
   constructor(props){
@@ -40,6 +41,7 @@ export default class Account extends Component {
               Edit Bio
             </button>
        {checkBioEdit}
+       <Test />
        <button onClick={this.logout}>Logout</button>
        <Link to="/feed">Back to feed</Link>
       </div>
