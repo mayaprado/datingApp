@@ -19,8 +19,7 @@ export default class Gallery extends React.Component {
     this.loadPhotos();
   }
 
-  editing(ev) {
-    ev.preventDefault();
+  editing() {
     this.setState(prevState => {
       const nextState = { ...prevState, editing: !prevState.editing };
       return nextState;
@@ -48,7 +47,7 @@ export default class Gallery extends React.Component {
     }).then(resp => {
       this.setState({photos: resp.data.photos, dataLoaded: true});
       console.log("in addPhoto, photos are ", this.state.photos, "user is ", this.props.user);
-      this.loadPhotos();
+      this.editing();
     })
     .catch(err => console.log(`err: ${err}`));
   }
@@ -57,12 +56,9 @@ export default class Gallery extends React.Component {
     axios(`http://localhost:3000//photos/${photoId}`, {
       method: "DELETE"
     }).then(resp => {
-      this.setState(prevState => {
-        prevState.photos = prevState.photos.concat(resp.data.photos);
-        return prevState
-      });
+      this.setState({photos: resp.data.photos, dataLoaded: true});
       console.log("in deletePhoto, photos are ", this.state.photos, "user is ", this.props.user);
-      this.loadPhotos();
+      this.editing();
     })
     .catch(err => console.log(`err: ${err}`));
   }

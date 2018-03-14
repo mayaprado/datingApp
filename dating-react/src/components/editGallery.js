@@ -28,7 +28,6 @@ export default class EditGallery extends React.Component {
     if (window.confirm("Delete Photo?")) {
       console.log("in deletePhoto, ev.target.id is ", ev.target.id)
       this.props.deletePhoto(ev.target.id);
-      this.props.reload();
     } else {
       console.log('deleting denied');
     }
@@ -40,7 +39,7 @@ export default class EditGallery extends React.Component {
       return (
         <div>
           <h2>Edit Your Photo Gallery</h2>
-          <AddPhoto addPhoto={this.props.addPhoto} user={this.props.user} reload={this.props.reload} />
+          <AddPhoto addPhoto={this.props.addPhoto} user={this.props.user} />
           <div className="gallery-container">
           <Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.deletePhoto}/>
           </div>

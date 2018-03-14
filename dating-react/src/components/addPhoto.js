@@ -20,7 +20,6 @@ export default class AddPhoto extends React.Component {
   handleSubmit(ev) {
     ev.preventDefault();
     this.props.addPhoto(this.state.url);
-    this.props.reload();
   }
   
   render() {
