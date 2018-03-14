@@ -20,10 +20,10 @@ class UsersController < ApplicationController
     })
 
     user = User.find_from_credentials username, password
-    if new_user
+    if new_user.valid?
       render json: {user: user, token: gen_token(new_user.id)}
     else
-      render json: {err: 'error in create new user'}
+      render nothing: true, status: 401
     end
   end
 
@@ -55,12 +55,12 @@ class UsersController < ApplicationController
     bio = params[:bio]
     @user = User.find(params[:id])
     @user.update(bio: bio)
-    render json: {user: @user}
+    render json: {user: @user, token: gen_token(@user.id)}
   end
 
   def photos
     user = User.find(params[:id])
     @photos = user.photos
-    render json: {photos: @photos}
+    render json: {photos: @photos, token: gen_token(user.id)}
   end
 end

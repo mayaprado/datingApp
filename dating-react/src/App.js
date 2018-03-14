@@ -24,12 +24,12 @@ export default class App extends Component {
     this.checkLogin = this.checkLogin.bind(this);
     this.queryUsers = this.queryUsers.bind(this);
     this.updateUser = this.updateUser.bind(this);
-
   }
 
   componentDidMount() {
     this.queryUsers();
     console.log('in componentDidMount, state: ', this.state);
+    this.checkLogin();
   }
 
   register(data) {
@@ -91,7 +91,12 @@ export default class App extends Component {
       headers: {
         Authorization: `Bearer ${TokenService.read()}`,
       },
-    }).then(resp => console.log(resp))
+    }).then(resp => {
+      console.log("in checkLogin, resp is ", resp);
+      if (resp.statusText === "OK") {
+        this.setState({logged: true, user: resp.data});
+      }
+    })
     .catch(err => console.log(err));
   }
 

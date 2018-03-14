@@ -4538,3 +4538,525 @@ Processing by UsersController#photos as HTML
 Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.5ms)
 
 
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:06:30 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:06:30 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (136.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (26.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 211ms (Views: 72.5ms | ActiveRecord: 136.6ms)
+
+
+Completed 200 OK in 68ms (Views: 0.8ms | ActiveRecord: 26.1ms)
+
+
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:07:11 -0400
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:07:11 -0400
+Processing by UsersController#is_logged_in as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 11ms (Views: 10.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:07:27 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:07:27 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 29ms (Views: 0.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:08:28 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (38.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 146ms (Views: 0.8ms | ActiveRecord: 38.5ms)
+
+
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:08:36 -0400
+Processing by UsersController#is_logged_in as HTML
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:08:36 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (11.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 104ms (Views: 92.4ms | ActiveRecord: 11.4ms)
+
+
+  [1m[36mUser Load (31.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 126ms (Views: 0.7ms | ActiveRecord: 31.3ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:09:15 -0400
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:09:15 -0400
+Processing by UsersController#is_logged_in as HTML
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 30ms (Views: 0.7ms | ActiveRecord: 0.3ms)
+
+
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 47ms (Views: 46.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:09:51 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 106ms (Views: 0.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:10:00 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:10:00 -0400
+Processing by UsersController#is_logged_in as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (20.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 27ms (Views: 6.1ms | ActiveRecord: 20.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:11:03 -0400
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:11:03 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#is_logged_in as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:11:11 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:11:11 -0400
+Processing by UsersController#is_logged_in as HTML
+Completed 401 Unauthorized in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:11:20 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 0.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:11:28 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (14.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 24ms (Views: 8.2ms | ActiveRecord: 14.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:11:45 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:11:45 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (3.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 24ms (Views: 20.0ms | ActiveRecord: 3.2ms)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 18ms (Views: 0.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:12:00 -0400
+Processing by UsersController#is_logged_in as HTML
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:12:00 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.5ms)
+
+
+  [1m[36mUser Load (7.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 28ms (Views: 0.7ms | ActiveRecord: 7.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:12:32 -0400
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:12:32 -0400
+Processing by UsersController#index as HTML
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.4ms)
+
+
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:12:39 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:12:39 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (6.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 9ms (Views: 0.6ms | ActiveRecord: 6.8ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:12:52 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:12:52 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (18.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 29ms (Views: 10.5ms | ActiveRecord: 18.4ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 100ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:13:03 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 85ms (Views: 0.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:13:06 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 11ms (Views: 2.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:13:08 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:13:08 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 1.7ms)
+
+
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 18ms (Views: 12.4ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users/undefined/photos" for 127.0.0.1 at 2018-03-14 19:13:08 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 19ms (ActiveRecord: 0.3ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:62:in `photos'
+Started GET "/users/undefined/photos" for 127.0.0.1 at 2018-03-14 19:13:08 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"undefined"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 0], ["LIMIT", 1]]
+Completed 404 Not Found in 4ms (ActiveRecord: 0.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=undefined):
+  
+app/controllers/users_controller.rb:62:in `photos'
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:14:24 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:14:24 -0400
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Processing by UsersController#is_logged_in as HTML
+Completed 200 OK in 6ms (Views: 4.8ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:14:24 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 4ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:14:39 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 86ms (Views: 0.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:14:41 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 9ms (Views: 2.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:14:43 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:14:43 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.7ms)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 53ms (Views: 0.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:14:43 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 9ms (Views: 2.5ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:14:47 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:14:47 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.8ms)
+
+
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 20ms (Views: 12.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:14:50 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:14:50 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 52ms (Views: 49.9ms | ActiveRecord: 1.4ms)
+
+
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 46ms (Views: 0.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:14:52 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (3.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 4.0ms)
+
+
+Started PUT "/users/9" for 127.0.0.1 at 2018-03-14 19:15:08 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"username"=>"tester8", "bio"=>"I am so happy I figured out Auth!!!!", "id"=>"9", "user"=>{"username"=>"tester8", "bio"=>"I am so happy I figured out Auth!!!!"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (2.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (31.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "tester8"], ["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (34.2ms)[0m  [1m[33mUPDATE "users" SET "bio" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["bio", "I am so happy I figured out Auth!!!!"], ["updated_at", "2018-03-14 23:15:08.311992"], ["id", 9]]
+  [1m[35m (18.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 100ms (Views: 0.7ms | ActiveRecord: 86.9ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:15:08 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (5.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 10ms (Views: 2.2ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:15:10 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:15:10 -0400
+Processing by UsersController#is_logged_in as HTML
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms)
+
+
+  
+TypeError (class or module required for rescue clause):
+  
+app/controllers/application_controller.rb:12:in `rescue in decode'
+app/controllers/application_controller.rb:8:in `decode'
+app/controllers/application_controller.rb:22:in `block in find_current_user'
+app/controllers/application_controller.rb:21:in `find_current_user'
+app/controllers/application_controller.rb:17:in `current_user'
+app/controllers/users_controller.rb:36:in `is_logged_in'
+  [1m[36mUser Load (98.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 107ms (Views: 8.4ms | ActiveRecord: 98.7ms)
+
+
+Started POST "/users/login" for 127.0.0.1 at 2018-03-14 19:18:48 -0400
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"tester8", "password"=>"[FILTERED]", "user"=>{"username"=>"tester8"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "tester8"], ["LIMIT", 1]]
+Completed 200 OK in 92ms (Views: 1.0ms | ActiveRecord: 39.9ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:18:57 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 34ms (Views: 13.3ms | ActiveRecord: 12.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:19:07 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (18.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 27ms (Views: 5.7ms | ActiveRecord: 18.8ms)
+
+
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:19:07 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (7.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 51ms (Views: 0.6ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:19:07 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 8ms (Views: 2.4ms | ActiveRecord: 0.7ms)
+
+
+Started PUT "/users/9" for 127.0.0.1 at 2018-03-14 19:19:15 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"username"=>"tester8", "bio"=>"or no", "id"=>"9", "user"=>{"username"=>"tester8", "bio"=>"or no"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "tester8"], ["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[33mUPDATE "users" SET "bio" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["bio", "or no"], ["updated_at", "2018-03-14 23:19:15.729024"], ["id", 9]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 500 Internal Server Error in 160ms (ActiveRecord: 2.8ms)
+
+
+  
+NameError (undefined local variable or method `user' for #<UsersController:0x00007ff9392d1240>
+Did you mean?  @user):
+  
+app/controllers/users_controller.rb:58:in `update'
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:20:15 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:20:15 -0400
+  [1m[36mUser Load (4.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 63ms (Views: 26.2ms | ActiveRecord: 26.8ms)
+
+
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 19ms (Views: 1.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:15 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 67ms (Views: 17.6ms | ActiveRecord: 42.8ms)
+
+
+Started PUT "/users/9" for 127.0.0.1 at 2018-03-14 19:20:21 -0400
+Processing by UsersController#update as HTML
+  Parameters: {"username"=>"tester8", "bio"=>"wow", "id"=>"9", "user"=>{"username"=>"tester8", "bio"=>"wow"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 AND ("users"."id" != $2) LIMIT $3[0m  [["username", "tester8"], ["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[33mUPDATE "users" SET "bio" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["bio", "wow"], ["updated_at", "2018-03-14 23:20:21.338304"], ["id", 9]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.7ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:21 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 5ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:20:25 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:20:25 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 12ms (Views: 2.0ms | ActiveRecord: 0.2ms)
+
+
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 27ms (Views: 26.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:26 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (23.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 54ms (Views: 2.5ms | ActiveRecord: 48.0ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:26 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 5ms (Views: 2.4ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:48 -0400
+Started POST "//photos" for 127.0.0.1 at 2018-03-14 19:20:48 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+Processing by PhotosController#create as HTML
+  [1m[36mUser Load (4.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  Parameters: {"user_id"=>9, "url"=>"https://proxy.topixcdn.com/ipicimg/R0GN8TA70MQ8FF5N-cp0x237x1600x1038-fill810x415x", "photo"=>{"url"=>"https://proxy.topixcdn.com/ipicimg/R0GN8TA70MQ8FF5N-cp0x237x1600x1038-fill810x415x", "user_id"=>9}}
+  [1m[36mPhoto Load (1.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 6.0ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[35mSQL (14.3ms)[0m  [1m[32mINSERT INTO "photos" ("url", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["url", "https://proxy.topixcdn.com/ipicimg/R0GN8TA70MQ8FF5N-cp0x237x1600x1038-fill810x415x"], ["user_id", 9], ["created_at", "2018-03-14 23:20:48.753964"], ["updated_at", "2018-03-14 23:20:48.753964"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos"[0m
+Completed 200 OK in 32ms (Views: 1.8ms | ActiveRecord: 18.3ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:48 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/users" for 127.0.0.1 at 2018-03-14 19:20:54 -0400
+Processing by UsersController#index as HTML
+Started GET "/isLoggedIn" for 127.0.0.1 at 2018-03-14 19:20:54 -0400
+Processing by UsersController#is_logged_in as HTML
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 7.9ms)
+
+
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+Completed 200 OK in 23ms (Views: 0.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/users/9/photos" for 127.0.0.1 at 2018-03-14 19:20:55 -0400
+Processing by UsersController#photos as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (7.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mPhoto Load (3.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."user_id" = $1[0m  [["user_id", 9]]
+Completed 200 OK in 22ms (Views: 2.4ms | ActiveRecord: 11.0ms)
+
+
