@@ -4,8 +4,8 @@ import Gallery from 'react-photo-gallery';
 import Lightbox from 'react-images';
 
 export default class Photo extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = { currentImage: 0, dataLoaded: false };
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
