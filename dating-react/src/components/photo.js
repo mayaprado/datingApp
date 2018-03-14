@@ -6,11 +6,24 @@ import Lightbox from 'react-images';
 export default class Photo extends React.Component {
   constructor() {
     super();
-    this.state = { currentImage: 0 };
+    this.state = { currentImage: 0, dataLoaded: false };
     this.closeLightbox = this.closeLightbox.bind(this);
     this.openLightbox = this.openLightbox.bind(this);
     this.gotoNext = this.gotoNext.bind(this);
     this.gotoPrevious = this.gotoPrevious.bind(this);
+  }
+
+  componentDidMount() {
+    const photos = this.props.photos.map(photo => {
+      return ({
+        src: photo.url,
+        width: 300,
+        title: null,
+        serSet: null
+        })
+    });
+    this.setState({ photos: photos, dataLoaded: true });
+    console.log("in componentDidMount, state is ", this.state);
   }
   openLightbox(event, obj) {
     this.setState({
@@ -36,22 +49,28 @@ export default class Photo extends React.Component {
   }
   render() {
     let columns = 1;
-    return (
-      <div>
-        <h2>Using with a Lightbox component</h2>
-        <Gallery photos={this.props.photos} columns={this.props.columns} onClick={this.openLightbox}/>
-        <Lightbox
-          theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
-          images={this.props.photos.map(x => ({ ...x, srcset: x.src, caption: x.title }))}
-          backdropClosesModal={true}
-          onClose={this.closeLightbox}
-          onClickPrev={this.gotoPrevious}
-          onClickNext={this.gotoNext}
-          currentImage={this.state.currentImage}
-          isOpen={this.state.lightboxIsOpen}
-          width={1600}
-          />
-      </div>
-    );
+    if (this.state.dataLoaded) {
+      return (
+        <div>
+          <h2>Your Photo Gallery</h2>
+          <div className="gallery-container">
+          <Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.openLightbox}/>
+          </div>
+          <Lightbox
+            theme={{ container: { background: 'rgba(0, 0, 0, 0.85)' } }}
+            images={this.state.photos.map(x => ({ ...x, srcset: null, caption: null }))}
+            backdropClosesModal={true}
+            onClose={this.closeLightbox}
+            onClickPrev={this.gotoPrevious}
+            onClickNext={this.gotoNext}
+            currentImage={this.state.currentImage}
+            isOpen={this.state.lightboxIsOpen}
+            width={1600}
+            />
+        </div>
+      );
+    } else {
+      return <div>Loading photos...</div>
+    }
   }
 }

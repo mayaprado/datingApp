@@ -57,4 +57,10 @@ class UsersController < ApplicationController
     @user.update(bio: bio)
     render json: {user: @user}
   end
+
+  def photos
+    user = User.find(params[:id])
+    @photos = user.photos
+    render json: {photos: @photos}
+  end
 end

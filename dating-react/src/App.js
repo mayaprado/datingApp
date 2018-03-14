@@ -7,6 +7,7 @@ import Register from './components/register';
 import TokenService from './services/TokenService';
 import Account from './components/account';
 import Feed from './components/feed';
+import Messanger from './components/messanger'
 
 
 export default class App extends Component {
@@ -110,6 +111,9 @@ export default class App extends Component {
             )} />
             <Route exact path="/feed" component={(props) => (
                 <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} /> 
+            )} />
+            <Route exact path="/messanger" component={(props) => (
+                <Messanger {...props} user={this.state.user} logged={this.state.logged} users={this.state.users} /> 
             )} />
           </Switch>
         </BrowserRouter>

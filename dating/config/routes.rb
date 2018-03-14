@@ -3,5 +3,6 @@ Rails.application.routes.draw do
   resources :photos
   get 'isLoggedIn', :to => 'users#is_logged_in'
   post 'users/login', :to => 'users#login'
+  get 'users/:id/photos', :to => 'users#photos'
   resources :users
 end

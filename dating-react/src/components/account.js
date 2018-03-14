@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Bio from './bio';
-import Test from './test';
+import Gallery from './gallery';
 
 export default class Account extends Component {
   constructor(props){
@@ -35,13 +35,13 @@ export default class Account extends Component {
       <div className="app-container">
        <h1>Hello, {this.props.user.username}! Wellcome to your account!</h1>
        <br />
+       <Gallery user={this.props.user} />
        <h2>Your bio</h2>
        <h3>{this.props.user.bio}</h3>
        <button className="profile-button" onClick={this.editProfile}>
               Edit Bio
             </button>
        {checkBioEdit}
-       <Test />
        <button onClick={this.logout}>Logout</button>
        <Link to="/feed">Back to feed</Link>
       </div>
