@@ -29,7 +29,7 @@ export default class Register extends Component {
 
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h1>Create an account!</h1>
         <form onSubmit={this.handleSubmit}>
         <label>Name

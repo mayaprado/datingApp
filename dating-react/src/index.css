@@ -1,9 +1,16 @@
 body {
-  margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: lightblue;
+  margin: 0 auto;
 }
+
+.app-container {
+  width: 1000px;
+  margin: 0 auto;
+  background: lightblue;
+  text-align: center;
+}
+
 
 .gallery-container img {
   max-width: 400px;
@@ -21,6 +28,30 @@ body {
   width: 500px;
   background: white;
   padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.conversation-container p {
+  background: #ccdfff;
+  display: inline-block;
+  border-radius: 10px;
+  padding: 5px;
+}
+
+.new-message-container {
+  display: block;
+  width: 500px;
+  margin: 0 auto 20px auto;
+  text-align: center;
+}
+
+.new-message-container textarea {
+  display: block;
+  width: 500px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .your-message {

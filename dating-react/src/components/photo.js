@@ -51,7 +51,7 @@ export default class Photo extends React.Component {
     let columns = 1;
     if (this.state.dataLoaded) {
       return (
-        <div>
+        <div className="app-container">
           <h2>Photo Gallery</h2>
           <div className="gallery-container">
           <Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.openLightbox}/>

@@ -37,7 +37,7 @@ export default class EditGallery extends React.Component {
     let columns = 1;
     if (this.state.dataLoaded) {
       return (
-        <div>
+        <div className="app-container">
           <h2>Edit Your Photo Gallery</h2>
           <AddPhoto addPhoto={this.props.addPhoto} user={this.props.user} />
           <div className="gallery-container">
@@ -46,7 +46,7 @@ export default class EditGallery extends React.Component {
         </div>
       );
     } else {
-      return <div>Loading photos...</div>
+      return <div className="app-container">Loading photos...</div>
     }
   }
 }

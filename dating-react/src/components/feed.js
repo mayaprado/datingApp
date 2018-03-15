@@ -23,7 +23,8 @@ export default class Feed extends Component {
     if (this.props.logged === true) {
     return (
       <div className="app-container">
-       <h1>This is Feed</h1>
+       <h1>Check out other useres!</h1>
+       <Link to="/messenger"><button>Go to Messenger!</button></Link>
        <ul>{users}</ul>
        <Link to="/account"><button>your account!</button></Link>
        <button onClick={this.logout}>Logout</button>

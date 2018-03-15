@@ -34,6 +34,7 @@ export default class Account extends Component {
     return (
       <div className="app-container">
        <h1>Hello, {this.props.user.username}! Wellcome to your account!</h1>
+       <Link to="/messenger"><button>Go to Messenger!</button></Link>
        <br />
        <Gallery user={this.props.user} />
        <h2>Your bio</h2>

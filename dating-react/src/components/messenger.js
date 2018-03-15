@@ -23,9 +23,7 @@ export default class Messenger extends Component {
         )
     } return (
       <div className="app-container">
-        <h1>This is Messanger</h1>
-        <h2>You are {this.props.user.username}</h2>
-        <h2>You want to send message to {this.props.messageUser.username}</h2>
+        <h2>Messenger</h2>
             {conversations}
         <Link to="/feed"><button>back to feed!</button></Link>   
       </div>

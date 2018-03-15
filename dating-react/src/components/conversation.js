@@ -6,10 +6,11 @@ import axios from 'axios';
 export default class Conversation extends Component {
   constructor(props){
     super(props);
-    this.state = { sender: {}, body: "" }
+    this.state = { sender: {}, body: "", open: true }
     this.findSender = this.findSender.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+    this.openConversation = this.openConversation.bind(this);
   }
 
   componentDidMount(){
@@ -18,6 +19,14 @@ export default class Conversation extends Component {
     } else {
       this.findSender(this.props.conversation.recipient_id);
     }
+  }
+
+  openConversation(ev) {
+    ev.preventDefault();
+    this.setState(prevState => {
+    prevState.open = !prevState.open;
+    return prevState;
+     });
   }
 
   findSender(id) {
@@ -67,13 +76,14 @@ export default class Conversation extends Component {
         }
       }
     })
+    if (this.state.open) {
     return (
-      <div>
+      <div className="app-container">
+      <input type="button" value="Close Conversation" onClick={this.openConversation} />
        <div className="conversation-container">
         {messages}
        </div>
-       <div>
-        <h3>Send {this.state.sender.username} a message</h3>
+       <div className="new-message-container">
         <form onSubmit={this.sendMessage}>
           <textarea name="body" onChange={this.handleChange} placeholder="New message" />
           <input type="submit" value="submit" />
@@ -81,5 +91,14 @@ export default class Conversation extends Component {
       </div>
       </div>
     )
+  } else {
+    return (
+      <div className="app-container">
+        <h3>Your conversation with {this.state.sender.username}</h3> 
+        <input type="button" value="Open Conversation" onClick={this.openConversation} />  
+      </div> 
+              
+      )
+  }
   }
 }

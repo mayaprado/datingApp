@@ -24,7 +24,7 @@ export default class AddPhoto extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className="app-container">
         <h2>Add More Photos to Your Gallery</h2>
         <form onSubmit={this.handleSubmit}>
           <input name="url" onChange={this.handleChange} type="text" placeholder="insert photo url" />

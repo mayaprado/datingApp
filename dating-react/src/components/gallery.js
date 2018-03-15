@@ -113,7 +113,7 @@ export default class Gallery extends React.Component {
             if (width >= 1824){
               columns = 4;
             }
-              return <div ref={measureRef} className="App">
+              return <div ref={measureRef} className="app-container">
                 <Photo columns={columns} photos={this.state.photos} />
                 <input type="button" onClick={this.editing} value="Edit Gallery" />
               </div>
@@ -124,7 +124,7 @@ export default class Gallery extends React.Component {
       }
       } else {
           return (
-        <div className="App">
+        <div className="app-container">
           <div id="msg-app-loading" className="loading-msg">
             Loading
           </div>

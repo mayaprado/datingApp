@@ -137,12 +137,13 @@ export default class App extends Component {
     .catch(err => console.log(`err: ${err}`));
   }
 
-  startConversation(sender, recipient){
+  startConversation(recipient){
+    this.setState({ messageUser: recipient });
     console.log('in startConversation');
     axios(`http://localhost:3000/conversations`, {
       method: "POST", 
       data: {
-        sender_id: sender.id,
+        sender_id: this.state.user.id,
         recipient_id: recipient.id
          }
     }).then(resp => {
@@ -193,11 +194,11 @@ export default class App extends Component {
             <Route exact path="/feed" component={(props) => (
                 <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} seeUser={this.seeUser}/> 
             )} />
-            <Route exact path="/messanger" component={(props) => (
+            <Route exact path="/messenger" component={(props) => (
                 <Messenger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} queryMessages={this.queryMessages} queryConversations={this.queryConversations} conversations={this.state.conversations} messages={this.state.messages} startConversation={this.startConversation} sendMessage={this.sendMessage} /> 
             )} />
             <Route exact path="/user" component={(props) => (
-                <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} sendMessage={this.sendMessage} /> 
+                <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} sendMessage={this.sendMessage} startConversation={this.startConversation} /> 
             )} />
           </Switch>
         </BrowserRouter>
