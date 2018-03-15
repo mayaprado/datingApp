@@ -1,8 +1,7 @@
 class ConversationsController < ApplicationController
 
 def index
- @user = User.find(params[:id])
- @conversations = @user.conversations
+ @conversations = Conversation.all
  render json: {conversations: @conversations}
 end
 

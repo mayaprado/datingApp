@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AccountFeed from './accountFeed'
+import Conversation from './conversation';
+
 
 export default class Messenger extends Component {
   constructor(props){
@@ -8,6 +9,11 @@ export default class Messenger extends Component {
   }
 
   render() {
+    const conversations = this.props.conversations.map(conv => {
+      if(conv.sender_id === this.props.user.id || conv.recipient_id === this.props.user.id) {
+        return <Conversation conversation={conv} queryMessages={this.props.queryMessages} messages={this.props.messages} user={this.props.user} sendMessage={this.props.sendMessage} startConversation={this.props.startConversation} />
+      }
+    })
     if (this.props.user.username === this.props.messageUser.username) {
       return (
         <div className="app-container">
@@ -17,10 +23,11 @@ export default class Messenger extends Component {
         )
     } return (
       <div className="app-container">
-       <h1>This is Messanger</h1>
-       <h2>You are {this.props.user.username}</h2>
-       <h2>You want to send message to {this.props.messageUser.username}</h2>
-       <Link to="/feed"><button>back to feed!</button></Link>
+        <h1>This is Messanger</h1>
+        <h2>You are {this.props.user.username}</h2>
+        <h2>You want to send message to {this.props.messageUser.username}</h2>
+            {conversations}
+        <Link to="/feed"><button>back to feed!</button></Link>   
       </div>
     )
   }

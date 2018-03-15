@@ -20,7 +20,9 @@ export default class App extends Component {
       users: [],
       seeUser: {},
       seeUserPhotos: [], 
-      messageUser: {}
+      messageUser: {}, 
+      conversations: [],
+      messages: []
     }
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
@@ -30,12 +32,17 @@ export default class App extends Component {
     this.updateUser = this.updateUser.bind(this);
     this.seeUser = this.seeUser.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+    this.startConversation = this.startConversation.bind(this);
+    this.queryConversations = this.queryConversations.bind(this);
+    this.queryMessages = this.queryMessages.bind(this);
   }
 
   componentDidMount() {
     this.queryUsers();
     console.log('in componentDidMount, state: ', this.state);
     this.checkLogin();
+    this.queryConversations();
+    this.queryMessages();
   }
 
   register(data) {
@@ -116,8 +123,57 @@ export default class App extends Component {
     .catch(err => console.log(`err: ${err}`));
   }
 
-  sendMessage(user) {
-    this.setState({ messageUser: user});
+  sendMessage(data) {
+    console.log('in sendMessage App.js, ');
+    axios(`http://localhost:3000/messages`, {
+      method: "POST", 
+      data
+    }).then(resp => {
+      this.setState(prevState => {
+      prevState.messages = prevState.messages.concat(resp.data.message);
+      return prevState });
+      console.log("in queryMessages, data is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
+
+  startConversation(sender, recipient){
+    console.log('in startConversation');
+    axios(`http://localhost:3000/conversations`, {
+      method: "POST", 
+      data: {
+        sender_id: sender.id,
+        recipient_id: recipient.id
+         }
+    }).then(resp => {
+      this.setState(prevState => {
+      prevState.conversations = prevState.conversations.concat(resp.data.conversation);
+      return prevState });
+      console.log("in startConversation, data is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
+
+  queryConversations() {
+    console.log('in conversations');
+    axios(`http://localhost:3000/conversations`, {
+      method: "GET"
+    }).then(resp => {
+      this.setState({ conversations: resp.data.conversations });
+      console.log("in queryConversations, data is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
+
+  queryMessages() {
+    console.log('in messages');
+    axios(`http://localhost:3000/messages`, {
+      method: "GET"
+    }).then(resp => {
+      this.setState({ messages: resp.data.messages });
+      console.log("in queryMessages, data is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
   }
 
   render() {
@@ -138,7 +194,7 @@ export default class App extends Component {
                 <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} seeUser={this.seeUser}/> 
             )} />
             <Route exact path="/messanger" component={(props) => (
-                <Messenger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} /> 
+                <Messenger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} queryMessages={this.queryMessages} queryConversations={this.queryConversations} conversations={this.state.conversations} messages={this.state.messages} startConversation={this.startConversation} sendMessage={this.sendMessage} /> 
             )} />
             <Route exact path="/user" component={(props) => (
                 <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} sendMessage={this.sendMessage} /> 

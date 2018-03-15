@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   post 'users/login', :to => 'users#login'
   get 'users/:id/photos', :to => 'users#photos'
   resources :users
-  resources :conversations do
-    resources :messages
-  end
+  resources :conversations
+  resources :messages
 end

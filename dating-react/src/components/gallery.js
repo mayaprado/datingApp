@@ -45,7 +45,10 @@ export default class Gallery extends React.Component {
         url: photoUrl
       }
     }).then(resp => {
-      this.setState({photos: resp.data.photos, dataLoaded: true});
+      this.setState(prevState => {
+        prevState.photos = prevState.photos.concat(resp.data.photo)
+        return prevState;
+      });
       console.log("in addPhoto, photos are ", this.state.photos, "user is ", this.props.user);
       this.editing();
     })
@@ -56,7 +59,7 @@ export default class Gallery extends React.Component {
     axios(`http://localhost:3000//photos/${photoId}`, {
       method: "DELETE"
     }).then(resp => {
-      this.setState({photos: resp.data.photos, dataLoaded: true});
+      this.setState({ photos: resp.data.photos });
       console.log("in deletePhoto, photos are ", this.state.photos, "user is ", this.props.user);
       this.editing();
     })

@@ -9,14 +9,14 @@ class PhotosController < ApplicationController
 
   def create
     @photo = Photo.create!(photo_params)
-    @photos = Photo.all
-    render json: {photos: @photos}
+    render json: {photo: @photo}
   end
 
   def destroy
     @photo = Photo.find(params[:id])
     @photo.delete
-    @photos = Photo.all
+    @user = User.find(@photo.user_id)
+    @photos = @user.photos
     render json: {photos: @photos}
   end
 
