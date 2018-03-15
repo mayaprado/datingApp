@@ -7,6 +7,13 @@ export default class User extends Component {
   constructor(props){
     super(props);
     this.state = {user: this.props.user, photos: this.props.photos, width: -1};
+    this.message = this.message.bind(this);
+  }
+
+  message(ev) {
+    ev.preventDefault();
+    this.props.sendMessage(this.state.user);
+    this.props.history.push('./messanger');
   }
 
   render() {
@@ -43,6 +50,7 @@ export default class User extends Component {
                 <Gallery photos={photos} columns={columns} />
                 </div>
                 <h4>{this.state.user.bio}</h4>
+                <input type="button" onClick={this.message} value="Message them!" />
                 <a href='./feed'>Back to feed</a>
                 </div>
               }

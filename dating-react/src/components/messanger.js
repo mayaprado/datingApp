@@ -11,6 +11,8 @@ export default class Messanger extends Component {
     return (
       <div className="app-container">
        <h1>This is Messanger</h1>
+       <h2>You are {this.props.user.username}</h2>
+       <h2>You want to send message to {this.props.messageUser.username}</h2>
        <Link to="/account"><button>your account!</button></Link>
       </div>
     )

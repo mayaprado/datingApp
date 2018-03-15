@@ -19,7 +19,8 @@ export default class App extends Component {
       logged: false, 
       users: [],
       seeUser: {},
-      seeUserPhotos: []
+      seeUserPhotos: [], 
+      messageUser: {}
     }
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
@@ -28,6 +29,7 @@ export default class App extends Component {
     this.queryUsers = this.queryUsers.bind(this);
     this.updateUser = this.updateUser.bind(this);
     this.seeUser = this.seeUser.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
 
   componentDidMount() {
@@ -114,6 +116,10 @@ export default class App extends Component {
     .catch(err => console.log(`err: ${err}`));
   }
 
+  sendMessage(user) {
+    this.setState({ messageUser: user});
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -132,10 +138,10 @@ export default class App extends Component {
                 <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} seeUser={this.seeUser}/> 
             )} />
             <Route exact path="/messanger" component={(props) => (
-                <Messanger {...props} user={this.state.user} logged={this.state.logged} users={this.state.users} /> 
+                <Messanger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} /> 
             )} />
             <Route exact path="/user" component={(props) => (
-                <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} /> 
+                <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} sendMessage={this.sendMessage} /> 
             )} />
           </Switch>
         </BrowserRouter>
