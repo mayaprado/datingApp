@@ -7,7 +7,7 @@ import Register from './components/register';
 import TokenService from './services/TokenService';
 import Account from './components/account';
 import Feed from './components/feed';
-import Messanger from './components/messanger';
+import Messenger from './components/messenger';
 import User from './components/user';
 
 
@@ -138,7 +138,7 @@ export default class App extends Component {
                 <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} seeUser={this.seeUser}/> 
             )} />
             <Route exact path="/messanger" component={(props) => (
-                <Messanger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} /> 
+                <Messenger {...props} user={this.state.user} users={this.state.users} messageUser={this.state.messageUser} /> 
             )} />
             <Route exact path="/user" component={(props) => (
                 <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} sendMessage={this.sendMessage} /> 
