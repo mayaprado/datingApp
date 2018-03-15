@@ -32,6 +32,12 @@ class UsersController < ApplicationController
     render json: {users: @users}
   end
 
+  def show
+    @user = User.find(params[:id])
+    @photos = @user.photos
+    render json: {user: @user, photos: @photos}
+  end
+
   def is_logged_in
     if current_user
       render json: current_user

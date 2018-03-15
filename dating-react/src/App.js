@@ -7,7 +7,8 @@ import Register from './components/register';
 import TokenService from './services/TokenService';
 import Account from './components/account';
 import Feed from './components/feed';
-import Messanger from './components/messanger'
+import Messanger from './components/messanger';
+import User from './components/user';
 
 
 export default class App extends Component {
@@ -16,7 +17,9 @@ export default class App extends Component {
     this.state = {
       user: {},
       logged: false, 
-      users: []
+      users: [],
+      seeUser: {},
+      seeUserPhotos: []
     }
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
@@ -24,6 +27,7 @@ export default class App extends Component {
     this.checkLogin = this.checkLogin.bind(this);
     this.queryUsers = this.queryUsers.bind(this);
     this.updateUser = this.updateUser.bind(this);
+    this.seeUser = this.seeUser.bind(this);
   }
 
   componentDidMount() {
@@ -100,6 +104,16 @@ export default class App extends Component {
     .catch(err => console.log(err));
   }
 
+  seeUser(id) {
+    axios(`http://localhost:3000/users/${id}`, {
+      method: "GET"
+    }).then(resp => {
+      this.setState({ seeUser: resp.data.user, seeUserPhotos: resp.data.photos });
+      console.log("in seeUser, data is ", this.state);
+    })
+    .catch(err => console.log(`err: ${err}`));
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -115,10 +129,13 @@ export default class App extends Component {
                 <Account {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} change={this.updateUser} /> 
             )} />
             <Route exact path="/feed" component={(props) => (
-                <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} /> 
+                <Feed {...props} user={this.state.user} logged={this.state.logged} logout={this.logout} users={this.state.users} seeUser={this.seeUser}/> 
             )} />
             <Route exact path="/messanger" component={(props) => (
                 <Messanger {...props} user={this.state.user} logged={this.state.logged} users={this.state.users} /> 
+            )} />
+            <Route exact path="/user" component={(props) => (
+                <User {...props} user={this.state.seeUser} photos={this.state.seeUserPhotos} /> 
             )} />
           </Switch>
         </BrowserRouter>

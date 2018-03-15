@@ -9,3 +9,8 @@ body {
   max-width: 400px;
   max-height: 400px;
 }
+
+.feed-gallery-container img {
+  max-width: 200px;
+  max-height: 200px;
+}

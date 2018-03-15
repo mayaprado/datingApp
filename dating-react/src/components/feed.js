@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AccountFeed from './accountFeed'
+import AccountFeed from './accountFeed';
 
 export default class Feed extends Component {
   constructor(props){
@@ -15,7 +15,7 @@ export default class Feed extends Component {
   }
 
   userAccounts(userDatum, index) {
-    return <AccountFeed userDatum={userDatum} index={index} />;
+    return <AccountFeed userDatum={userDatum} index={index} seeUser={this.props.seeUser} history={this.props.history} />;
   }
 
   render() {
