@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Gallery from 'react-photo-gallery';
+import Photo from './photo';
 import Measure from 'react-measure';
 
 
@@ -17,14 +17,6 @@ export default class User extends Component {
   }
 
   render() {
-    const photos = this.state.photos.map(photo => {
-    return ({
-        src: photo.url,
-        width: 300,
-        title: null,
-        serSet: null
-        })
-      });
     const width = this.state.width;
     return (
         <div className="app-container" key={this.props.index} >
@@ -47,7 +39,7 @@ export default class User extends Component {
               }
                 return <div ref={measureRef} className="App">
                 <div className="feed-gallery-container">
-                <Gallery photos={photos} columns={columns} />
+                <Photo photos={this.state.photos} columns={columns} />
                 </div>
                 <h4>{this.state.user.bio}</h4>
                 <input type="button" onClick={this.message} value="Message them!" />
