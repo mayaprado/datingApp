@@ -78,8 +78,8 @@ export default class Conversation extends Component {
     })
     if (this.state.open) {
     return (
-      <div className="app-container">
-      <input type="button" value="Close Conversation" onClick={this.openConversation} />
+      <div>
+      <input type="button" value="Close Chat" onClick={this.openConversation} />
        <div className="conversation-container">
         {messages}
        </div>
@@ -93,9 +93,8 @@ export default class Conversation extends Component {
     )
   } else {
     return (
-      <div className="app-container">
-        <h3>Your conversation with {this.state.sender.username}</h3> 
-        <input type="button" value="Open Conversation" onClick={this.openConversation} />  
+      <div>
+        <a onClick={this.openConversation}><h3>Chat with {this.state.sender.username}</h3></a> 
       </div> 
               
       )

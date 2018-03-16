@@ -14,7 +14,7 @@ export default class User extends Component {
   message(ev) {
     ev.preventDefault();
     this.props.startConversation(this.state.user);
-    this.props.history.push('./messanger');
+    this.props.history.push('./messenger');
   }
 
   render() {

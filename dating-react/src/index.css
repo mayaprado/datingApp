@@ -62,12 +62,6 @@ p {
   text-align: center;
 }
 
-
-.gallery-container img {
-  max-height: 300px;
-  margin: 0 auto;
-}
-
 .account-container img {
   width: 800px;
   margin: 0 auto;
@@ -75,13 +69,10 @@ p {
 }
 
 .conversation-container {
-  display: block;
-  height: 500px;
-  width: 500px;
+  height: 600px;
+  width: 600px;
   background: white;
-  padding: 30px;
   margin: 0 auto;
-  text-align: center;
   border-radius: 10%;
 }
 
@@ -170,11 +161,7 @@ p {
   cursor: pointer;
 }
 
-.feed-container img {
-  width: 800px;
-  margin: 0 auto;
-}
-.feed-container img {
+.feed-gallery-container img {
   width: 800px;
   margin: 0 auto;
 }
@@ -223,35 +210,35 @@ p {
   height: 400px;
 }
 
-.account-container {
+.profile-container {
   background: rgba(255, 255, 255, .6);
   width: 900px;
   margin: 0 auto;
   text-align: center;
 }
 
-.account-container img {
+.profile-container img {
   max-width: 140px;
   margin: 0 auto;
 }
 
-.account-container a {
+.profile-container a {
   font-size: 24px;
   color: black;
   text-shadow: none;
 }
 
-.account-container a:hover{
+.profile-container a:hover{
   color: #a3083f;
   cursor: pointer;
 }
 
-.account-container textarea {
+.profile-container textarea {
   height: 200px;
   width: 300px;
 }
 
-.account-image-container {
+.profile-image-container {
   height: 200px;
 }
 
@@ -264,4 +251,16 @@ p {
 .logout {
   font-size: 16px;
   margin-bottom: 50px;
+}
+
+.messenger-container {
+  background: rgba(255, 255, 255, .6);
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.messenger-container h3:hover {
+  color: #a3083f;
+  cursor: pointer;
 }

@@ -87,7 +87,7 @@ export default class Gallery extends React.Component {
             if (width >= 1824){
               columns = 4;
             }
-              return <div ref={measureRef} className="account-image-container">
+              return <div ref={measureRef} className="profile-image-container">
               <EditGallery photos={this.state.photos} addPhoto={this.addPhoto} deletePhoto={this.deletePhoto} user={this.props.user} reload={this.loadPhotos} />
               <input type="button" onClick={this.editing} value="Finish Editing" />
               </div>
@@ -113,7 +113,7 @@ export default class Gallery extends React.Component {
             if (width >= 1824){
               columns = 4;
             }
-              return <div ref={measureRef} className="account-image-container">
+              return <div ref={measureRef} className="profile-image-container">
                 <Photo columns={columns} photos={this.state.photos} />
                 <input type="button" onClick={this.editing} value="Edit Gallery" />
               </div>

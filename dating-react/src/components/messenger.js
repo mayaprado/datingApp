@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Conversation from './conversation';
+import Navbar from './navbar';
 
 
 export default class Messenger extends Component {
@@ -22,10 +23,10 @@ export default class Messenger extends Component {
         </div>
         )
     } return (
-      <div className="app-container">
-        <h2>Messenger</h2>
-            {conversations}
-        <Link to="/feed"><button>back to feed!</button></Link>   
+      <div className="messenger-container">
+        <Navbar />
+        <h1>Your Chats</h1>
+            {conversations} 
       </div>
     )
   }

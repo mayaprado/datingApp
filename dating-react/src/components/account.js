@@ -33,7 +33,7 @@ export default class Account extends Component {
     }
     if (this.props.logged === true) {
     return (
-      <div className="account-container">
+      <div className="profile-container">
       <Navbar />
        <h1>Hello, {this.props.user.username}! Wellcome to your account!</h1>
        <br />
