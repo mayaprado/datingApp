@@ -18,10 +18,11 @@ export default class Home extends Component {
   render() {
     return (
       <div className="app-container">
-        <h1>Welcome to Dating app!</h1>
-        <h3>Login here</h3>
+        <h1>Welcome to Save the Date!</h1>
+        <h3>App that brings people together</h3>
+        <h3>Sign in</h3>
         <UserForm submit={this.onSubmit} />
-        <p>Don't have an account?<Link to="/register"><button>Sign up!</button></Link></p>  
+        <p>Don't have an account?<Link to="/register"><a> Sign up!</a></Link></p>  
         <br />
       </div>
     )

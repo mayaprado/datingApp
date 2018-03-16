@@ -46,7 +46,7 @@ export default class Account extends Component {
       });
       const width = this.state.width;
       return (
-        <div className="app-container" key={this.props.index} >
+        <div className="account-container" key={this.props.index} >
          <h1>{this.props.userDatum.username}</h1>
          <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
           {

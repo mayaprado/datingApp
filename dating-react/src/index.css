@@ -2,24 +2,74 @@ body {
   padding: 0;
   font-family: sans-serif;
   margin: 0 auto;
+  background-image: url(/background.jpeg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  font-family: 'Rozha One', serif;
+  color: ivory;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 62px;
+  padding: 0;
+}
+
+h2 {
+  font-family: 'Rozha One', serif;
+  color: white;
+  font-size: 48px;
+}
+
+h3 {
+  font-family: 'Rozha One', serif;
+  color: ivory;
+  text-shadow: 2px 2px 4px #000000;
+  font-size: 36px;
+}
+
+h4 {
+  font-family: 'Merriweather', serif;
+  color: #5575a8;
+  font-size: 16px;
+}
+
+p {
+  font-family: 'Merriweather', serif;
+  color: black;
+  font-size: 16px;
 }
 
 .app-container {
-  width: 1000px;
+  width: 1200px;
   margin: 0 auto;
-  background: lightblue;
+  text-align: center;
+  min-height: 1000px;
+}
+
+.account-container {
+  width: 800px;
+  margin: 0 auto;
   text-align: center;
 }
 
 
 .gallery-container img {
-  max-width: 400px;
-  max-height: 400px;
+  max-height: 300px;
+  margin: 0 auto;
+}
+
+.account-container img {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .feed-gallery-container img {
-  max-width: 200px;
   max-height: 200px;
+  max-width: 400px;
+  margin: 0 auto;
 }
 
 .conversation-container {
@@ -64,4 +114,37 @@ body {
   display: inline-block;
   width: 500px;
   text-align: left;
+}
+
+.app-container p {
+  font-size: 20px;
+}
+
+.app-container a {
+  font-size: 20px;
+  color: ivory;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.app-container a:hover {
+  color: tomato;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.app-container a:after {
+  color: ivory;
+  text-decoration: none;
+  text-shadow: 2px 2px 4px #000000;
+}
+
+.form-container input {
+  margin: 5px;
+  font-size: 20px;
+}
+
+.form-container button {
+  margin: 5px;
+  font-size: 20px;
 }

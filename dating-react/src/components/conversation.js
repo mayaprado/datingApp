@@ -62,14 +62,14 @@ export default class Conversation extends Component {
         if(mess.user_id === this.props.user.id) {
           return (
             <div className="your-message">
-              <h3>You:</h3>
+              <h4>You:</h4>
               <p>{mess.body}</p>
             </div>
           )
         } else {
           return (
             <div className="their-message">
-              <h3>{this.state.sender.username}:</h3>
+              <h4>{this.state.sender.username}:</h4>
               <p>{mess.body}</p>
             </div>
           )
