@@ -37,8 +37,7 @@ export default class EditGallery extends React.Component {
     let columns = 1;
     if (this.state.dataLoaded) {
       return (
-        <div className="app-container">
-          <h2>Edit Your Photo Gallery</h2>
+        <div>
           <AddPhoto addPhoto={this.props.addPhoto} user={this.props.user} />
           <div className="gallery-container">
           <Gallery photos={this.state.photos} columns={this.props.columns} onClick={this.deletePhoto}/>

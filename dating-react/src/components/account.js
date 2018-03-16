@@ -37,12 +37,12 @@ export default class Account extends Component {
       <Navbar />
        <h1>Hello, {this.props.user.username}! Wellcome to your account!</h1>
        <br />
-       <Gallery user={this.props.user} />
        <div className="bio">
        <h3>Your bio</h3>
        <h3>{this.props.user.bio}<a onClick={this.editProfile}> (edit)</a></h3>
        </div>
        {checkBioEdit}
+       <Gallery user={this.props.user} />
        <button className="logout" onClick={this.logout}>Logout</button>
       </div>
     )
