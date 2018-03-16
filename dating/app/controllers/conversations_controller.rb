@@ -6,8 +6,15 @@ def index
 end
 
 def create
-  @conversation = Conversation.create!(conversation_params)
-  render json: {conversation: @conversation}
+  @conversation = Conversation.find_by(recipient_id: params[:recipient_id], sender_id: params[:sender_id])
+  if @conversation.nil?
+    @conversation = Conversation.create!(conversation_params)
+    @conversations = Conversation.all
+    render json: {conversations: @conversations}
+  else
+    @conversations = Conversation.all
+    render json: {conversations: @conversations}
+  end
 end
 
 private

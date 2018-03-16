@@ -151,7 +151,7 @@ export default class App extends Component {
          }
     }).then(resp => {
       this.setState(prevState => {
-      prevState.conversations = prevState.conversations.concat(resp.data.conversation);
+      prevState.conversations = resp.data.conversations;
       return prevState });
       console.log("in startConversation, data is ", this.state);
     })

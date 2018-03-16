@@ -81,6 +81,7 @@ export default class Conversation extends Component {
       <div>
       <input type="button" value="Close Chat" onClick={this.openConversation} />
        <div className="conversation-container">
+       <h4>Chat with {this.state.sender.username}</h4>
         {messages}
        </div>
        <div className="new-message-container">

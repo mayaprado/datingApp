@@ -17,7 +17,7 @@ export default class Messenger extends Component {
     })
     if (this.props.user.username === this.props.messageUser.username) {
       return (
-        <div className="app-container">
+        <div className="messenger-container">
           <div>You can't message yourself</div>
           <Link to="/feed"><button>back to feed!</button></Link>
         </div>

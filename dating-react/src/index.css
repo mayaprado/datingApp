@@ -73,7 +73,8 @@ p {
   width: 600px;
   background: white;
   margin: 0 auto;
-  border-radius: 10%;
+  border-radius: 1%;
+  overflow-y: auto;
 }
 
 .conversation-container p {
