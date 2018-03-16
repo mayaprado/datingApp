@@ -18,7 +18,7 @@ export default class Home extends Component {
   render() {
     return (
       <div className="app-container">
-        <h1>Welcome to Save the Date!</h1>
+        <h1>Welcome to <span>Save the Date</span>!</h1>
         <h3>App that brings people together</h3>
         <h3>Sign in</h3>
         <UserForm submit={this.onSubmit} />

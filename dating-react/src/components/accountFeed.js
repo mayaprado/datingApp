@@ -36,7 +36,7 @@ export default class Account extends Component {
 
   render() {
     if (this.state.dataLoaded) {
-      const photos = this.state.photos.map(photo => {
+      const photoset = this.state.photos.map(photo => {
       return ({
         src: photo.url,
         width: 300,
@@ -44,10 +44,12 @@ export default class Account extends Component {
         serSet: null
         })
       });
+      const photos = [];
+      photos.push(photoset[1]);
       const width = this.state.width;
       return (
         <div className="account-container" key={this.props.index} >
-         <h1>{this.props.userDatum.username}</h1>
+         <a onClick={this.seeUser} ><h2>{this.props.userDatum.username}</h2></a>
          <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
           {
             ({ measureRef }) => {
@@ -68,7 +70,6 @@ export default class Account extends Component {
                 <div className="feed-gallery-container">
                 <Gallery photos={photos} columns={columns} />
                 </div>
-                <input type="button" onClick={this.seeUser} value="See Account" />
                 </div>
               }
             }

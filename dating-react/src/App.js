@@ -179,7 +179,6 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className="main-container">
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={(props) => (
@@ -202,7 +201,6 @@ export default class App extends Component {
             )} />
           </Switch>
         </BrowserRouter>
-      </div>
     );
   }
 }

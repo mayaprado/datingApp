@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import AccountFeed from './accountFeed';
+import Navbar from './navbar';
 
 export default class Feed extends Component {
   constructor(props){
@@ -22,18 +23,15 @@ export default class Feed extends Component {
     const users = this.props.users.map(this.userAccounts);
     if (this.props.logged === true) {
     return (
-      <div className="app-container">
-       <h1>Check out other useres!</h1>
-       <Link to="/messenger"><button>Go to Messenger!</button></Link>
-       <ul>{users}</ul>
-       <Link to="/account"><button>your account!</button></Link>
-       <button onClick={this.logout}>Logout</button>
+      <div className="feed-container">
+       <Navbar />
+       {users}
       </div>
     )
   }
   else {
     return (
-      <div className="app-container">
+      <div className="feed-container">
         <h2>You need to login to see this page</h2>
         <Link to="/"><button>Login!</button></Link>
       </div>
