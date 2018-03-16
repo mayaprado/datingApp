@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Bio from './bio';
 import Gallery from './gallery';
+import Navbar from './navbar';
 
 export default class Account extends Component {
   constructor(props){
@@ -32,19 +33,17 @@ export default class Account extends Component {
     }
     if (this.props.logged === true) {
     return (
-      <div className="app-container">
+      <div className="account-container">
+      <Navbar />
        <h1>Hello, {this.props.user.username}! Wellcome to your account!</h1>
-       <Link to="/messenger"><button>Go to Messenger!</button></Link>
        <br />
        <Gallery user={this.props.user} />
-       <h2>Your bio</h2>
-       <h3>{this.props.user.bio}</h3>
-       <button className="profile-button" onClick={this.editProfile}>
-              Edit Bio
-            </button>
+       <div className="bio">
+       <h3>Your bio</h3>
+       <h3>{this.props.user.bio}<a onClick={this.editProfile}> (edit)</a></h3>
+       </div>
        {checkBioEdit}
-       <button onClick={this.logout}>Logout</button>
-       <Link to="/feed">Back to feed</Link>
+       <button className="logout" onClick={this.logout}>Logout</button>
       </div>
     )
   }
