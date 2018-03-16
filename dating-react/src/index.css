@@ -109,24 +109,24 @@ p {
   text-align: left;
 }
 
-.app-container p {
+.home-container p {
   font-size: 20px;
 }
 
-.app-container a {
+.home-container a {
   font-size: 20px;
   color: ivory;
   text-decoration: none;
   text-shadow: 2px 2px 4px #000000;
 }
 
-.app-container a:hover {
-  color: tomato;
+.home-container a:hover {
+  color: #a3083f;
   text-decoration: none;
   text-shadow: 2px 2px 4px #000000;
 }
 
-.app-container a:after {
+.home-container a:after {
   color: ivory;
   text-decoration: none;
   text-shadow: 2px 2px 4px #000000;
