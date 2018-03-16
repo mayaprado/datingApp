@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Photo from './photo';
 import Measure from 'react-measure';
+import Navbar from './navbar';
 
 
 export default class User extends Component {
@@ -19,9 +20,12 @@ export default class User extends Component {
   render() {
     const width = this.state.width;
     return (
-        <div className="app-container" key={this.props.index} >
-         <h1>{this.state.user.username}</h1>
-         <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
+        <div className="user-container">
+        <Navbar />
+          <h1>{this.state.user.username}</h1>
+          <h3>{this.state.user.bio}</h3>
+          <input type="button" onClick={this.message} value="Send Message" />
+          <Measure bounds onResize={(contentRect) => this.setState({ width: contentRect.bounds.width })}>
           {
             ({ measureRef }) => {
               if (width < 1 ){
@@ -37,14 +41,11 @@ export default class User extends Component {
               if (width >= 1824){
                 columns = 4;
               }
-                return <div ref={measureRef} className="App">
-                <div className="feed-gallery-container">
-                <Photo photos={this.state.photos} columns={columns} />
-                </div>
-                <h4>{this.state.user.bio}</h4>
-                <input type="button" onClick={this.message} value="Message them!" />
-                <a href='./feed'>Back to feed</a>
-                </div>
+                return (
+                  <div ref={measureRef} className="user-image-container">
+                   <Photo photos={this.state.photos} columns={columns} />
+                  </div>
+                  )
               }
             }
           </Measure>

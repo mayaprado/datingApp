@@ -201,3 +201,19 @@ p {
 .navbar a:after {
   text-decoration: none;
 }
+
+.user-container {
+  background: rgba(255, 255, 255, .6);
+  width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.user-container img {
+  max-width: 140px;
+  margin: 0 auto;
+}
+
+.user-image-container {
+  height: 400px;
+}
