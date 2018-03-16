@@ -64,8 +64,9 @@ export default class App extends Component {
       data
     }).then(resp => {
       TokenService.save(resp.data.token);
-      this.setState({ user: resp.data.user, logged: true });
+      this.setState({ user: resp.data.user });
       console.log("in login, user is ", this.state);
+      this.checkLogin();
     })
     .catch(err => console.log(`err: ${err}`));
   }
@@ -108,6 +109,8 @@ export default class App extends Component {
       console.log("in checkLogin, resp is ", resp);
       if (resp.statusText === "OK") {
         this.setState({logged: true, user: resp.data});
+      } else {
+        this.setState({logged: false, user: resp.data});
       }
     })
     .catch(err => console.log(err));
